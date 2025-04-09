@@ -1,0 +1,214 @@
+/* Modern UI styles */
+:root {
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --bg-color: #f3f4f6;
+    --chat-bg: #ffffff;
+    --user-msg-bg: #e3f2fd;
+    --assistant-msg-bg: #f8fafc;
+    --text-color: #1f2937;
+    --text-light: #6b7280;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Language selection overlay */
+#language-overlay {
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+#language-overlay .bg-white {
+    animation: overlayAppear 0.3s ease-out;
+}
+
+@keyframes overlayAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Modern container styling */
+.container {
+    max-width: 1200px !important;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Header animations */
+.header-title {
+    background: linear-gradient(120deg, var(--primary-color), #4f46e5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradientFlow 8s ease infinite;
+}
+
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Chat container styling */
+#chat-container {
+    background: var(--chat-bg);
+    border-radius: 1rem;
+    padding: 1rem;
+    height: 70vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+#chat-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+#chat-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#chat-container::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+/* Message styling */
+.message {
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    max-width: 85%;
+    animation: messageAppear 0.3s ease-out;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    line-height: 1.5;
+}
+
+@keyframes messageAppear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.user-message {
+    background: var(--primary-color);
+    color: white;
+    margin-left: auto;
+    border-bottom-right-radius: 0.25rem;
+}
+
+.assistant-message {
+    background: var(--assistant-msg-bg);
+    border-bottom-left-radius: 0.25rem;
+    margin-right: auto;
+}
+
+/* Input area styling */
+.input-container {
+    background: var(--chat-bg);
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-top: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+#user-input {
+    background: var(--bg-color);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+#user-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    outline: none;
+}
+
+#send-button {
+    background: var(--primary-color);
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+#send-button:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+#send-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Typing indicator */
+.typing-indicator {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: var(--assistant-msg-bg);
+    border-radius: 1rem;
+    width: fit-content;
+    margin-bottom: 1rem;
+    animation: messageAppear 0.3s ease-out;
+}
+
+.typing-indicator span {
+    width: 0.5rem;
+    height: 0.5rem;
+    background: var(--primary-color);
+    border-radius: 50%;
+    animation: typing 1s infinite;
+    opacity: 0.7;
+}
+
+.typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-0.5rem); }
+}
+
+/* Link styling */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+    .message {
+        max-width: 90%;
+    }
+    
+    #chat-container {
+        height: 50vh;
+    }
+} 

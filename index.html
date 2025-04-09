@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeGPT - Dein intelligenter Assistent</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- Language Selection Overlay -->
+    <div id="language-overlay" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl transform transition-all">
+            <h2 class="text-2xl font-bold text-center mb-6">Select Your Language / Wähle deine Sprache</h2>
+            <div class="flex gap-4 mb-6">
+                <button onclick="selectLanguage('en')" class="flex-1 bg-blue-500 text-white py-4 px-6 rounded-xl hover:bg-blue-600 transition-all font-medium">
+                    English
+                </button>
+                <button onclick="selectLanguage('de')" class="flex-1 bg-blue-500 text-white py-4 px-6 rounded-xl hover:bg-blue-600 transition-all font-medium">
+                    Deutsch
+                </button>
+            </div>
+            <p class="text-center text-gray-500 text-sm">Developed By Raphael</p>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-4 py-8">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-800 header-title">HomeGPT</h1>
+            <p class="text-gray-600 mt-2" id="header-subtitle">Dein intelligenter Assistent für alle Fragen</p>
+        </header>
+
+        <main class="max-w-4xl mx-auto">
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                <div id="chat-container" class="p-6 space-y-4">
+                    <!-- Chat messages will be displayed here -->
+                </div>
+                
+                <div class="input-container">
+                    <div class="flex gap-3">
+                        <input type="text" id="user-input" 
+                               class="flex-1 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                               placeholder="Stelle deine Frage...">
+                        <button id="send-button" 
+                                class="px-8 py-4 rounded-xl text-white font-medium hover:shadow-lg transition-all">
+                            Senden
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
